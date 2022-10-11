@@ -11,6 +11,7 @@ function App(): JSX.Element {
                 Edit <code>src/App.tsx</code> and save. This page will
                 automatically reload.
             </p>
+            <img src="dog.jpg" alt="A picture of some dogs" />
         </div>
     );
 }
