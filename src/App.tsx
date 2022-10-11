@@ -6,8 +6,10 @@ function App(): JSX.Element {
     return (
         <div className="App">
             <header className="App-header">
-                <h1>Hello World, Daniel McANulty COS420</h1>
-                UM COS420 with React Hooks and TypeScript
+                <h1>
+                    Hello World, Daniel McANulty COS420 UM COS420 with React
+                    Hooks and TypeScript
+                </h1>
             </header>
             <p>
                 Edit <code>src/App.tsx</code> and save. This page will
