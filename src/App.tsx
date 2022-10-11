@@ -1,15 +1,13 @@
 import React from "react";
 import "./App.css";
 import { Button } from "react-bootstrap";
-import { Container } from "react-bootstrap";
-import { Row } from "react-bootstrap";
-import { Col } from "react-bootstrap";
 
 function App(): JSX.Element {
     return (
         <div className="App">
             <header className="App-header">
                 <h1>Hello World, Daniel McANulty COS420</h1>
+                UM COS420 with React Hooks and TypeScript
             </header>
             <p>
                 Edit <code>src/App.tsx</code> and save. This page will
