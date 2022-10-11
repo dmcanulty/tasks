@@ -12,6 +12,11 @@ function App(): JSX.Element {
                 automatically reload.
             </p>
             <img src="dog.jpg" alt="A picture of some dogs" />
+            <ul>
+                <li>Both of these dogs appear to be staring at something</li>
+                <li>These dogs are both very cute!</li>
+                <li>The dogs are both rather small</li>
+            </ul>
         </div>
     );
 }
