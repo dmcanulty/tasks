@@ -1,11 +1,12 @@
 import React from "react";
 import "./App.css";
+import { Button } from "react-bootstrap";
 
 function App(): JSX.Element {
     return (
         <div className="App">
             <header className="App-header">
-                Hello World, Daniel McANulty COS420
+                <h1>Hello World, Daniel McANulty COS420</h1>
             </header>
             <p>
                 Edit <code>src/App.tsx</code> and save. This page will
@@ -17,6 +18,9 @@ function App(): JSX.Element {
                 <li>These dogs are both very cute!</li>
                 <li>The dogs are both rather small</li>
             </ul>
+            <Button onClick={() => console.log("Hello World!")}>
+                Log Hello World
+            </Button>
         </div>
     );
 }
