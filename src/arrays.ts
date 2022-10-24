@@ -1,3 +1,5 @@
+import { workerData } from "worker_threads";
+
 /**
  * Consume an array of numbers, and return a new array containing
  * JUST the first and last number. If there are no elements, return
@@ -55,7 +57,14 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    return [];
+    const init = messages.filter(
+        (msg: string): boolean => msg.charAt(msg.length - 1) !== "?"
+    );
+
+    const final = init.map((word: string): string =>
+        word.charAt(word.length - 1) === "!" ? word.toUpperCase() : word
+    );
+    return final;
 };
 
 /**
