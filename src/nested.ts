@@ -157,7 +157,18 @@ export function publishAll(questions: Question[]): Question[] {
  * are the same type. They can be any type, as long as they are all the SAME type.
  */
 export function sameType(questions: Question[]): boolean {
-    return false;
+    if (questions.length == 0) {
+        return true;
+    }
+    const type: string = questions[0].type;
+    let x = true;
+    questions.forEach((unk: Question) => {
+        if(unk.type != type){
+            x = false;
+            return;
+        }
+    });
+    return x;
 }
 
 /***
@@ -171,7 +182,11 @@ export function addNewQuestion(
     name: string,
     type: QuestionType
 ): Question[] {
-    return [];
+    let nArray: Question[] = questions.map((unk: Question) => ({
+        ...unk,
+        options: [...unk.options]
+    }));
+    return nArray;
 }
 
 /***
@@ -184,7 +199,13 @@ export function renameQuestionById(
     targetId: number,
     newName: string
 ): Question[] {
-    return [];
+    const change = questions.map((unk: Question): Question => ({ ...unk}));
+    for(let i = 0; i < change.length; i++) {
+        if(change[i].id === targetId){
+            change[i].name = newName;
+        }
+    }
+    return change;
 }
 
 /***
@@ -199,6 +220,7 @@ export function changeQuestionTypeById(
     targetId: number,
     newQuestionType: QuestionType
 ): Question[] {
+    
     return [];
 }
 
