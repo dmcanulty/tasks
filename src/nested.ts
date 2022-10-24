@@ -118,7 +118,7 @@ export function toCSV(questions: Question[]): string {
     ]
     .map((field) => field.join(","))
     .join("\n");
-    
+
     return single;
 }
 
@@ -128,7 +128,15 @@ export function toCSV(questions: Question[]): string {
  * making the `text` an empty string, and using false for both `submitted` and `correct`.
  */
 export function makeAnswers(questions: Question[]): Answer[] {
-    return [];
+    const grade = questions.map((unk: Question) => ({
+        correct: false,
+        questiondId: unk.id,
+        submitted: false,
+        text: ""
+
+    }));
+
+    return grade;
 }
 
 /***
@@ -136,7 +144,12 @@ export function makeAnswers(questions: Question[]): Answer[] {
  * each question is now published, regardless of its previous published status.
  */
 export function publishAll(questions: Question[]): Question[] {
-    return [];
+    const eachPub = questions.map((unk: Question): Question => ({ ...unk}));
+    for(let i = 0; i < eachPub.length; i++) {
+        eachPub[i].published = true;
+    }
+    
+    return eachPub;
 }
 
 /***
