@@ -30,13 +30,12 @@ export function makeBlankQuestion(
  * HINT: Look up the `trim` and `toLowerCase` functions.
  */
 export function isCorrect(question: Question, answer: string): boolean {
-    let bool = false;
-    if (
-        answer.toUpperCase().trim() === question.expected.toUpperCase().trim()
-    ) {
-        bool = true;
+    answer = answer.trim();
+    answer = answer.toLowerCase();
+    if (answer === question.expected.toLowerCase()) {
+        return true;
     }
-    return bool;
+    return false;
 }
 
 /**
@@ -46,7 +45,14 @@ export function isCorrect(question: Question, answer: string): boolean {
  * be exactly one of the options.
  */
 export function isValid(question: Question, answer: string): boolean {
-    return false;
+    let unk = false;
+    if (question.type === "multiple_choice_question") {
+        if (question.options.includes(answer)) {
+            unk = true;
+        }
+    } else unk = true;
+
+    return unk;
 }
 
 /**
@@ -56,7 +62,7 @@ export function isValid(question: Question, answer: string): boolean {
  * name "My First Question" would become "9: My First Q".
  */
 export function toShortForm(question: Question): string {
-    return "";
+    return question.id.toString() + ":" + question.name.slice(0, 10);
 }
 
 /**
@@ -77,7 +83,11 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
-    return "";
+    let unk: string = "# " + question.name + "\n" + question.body;
+    if (question.type === "multiple_choice_question") {
+        unk = unk + "\n- " + question.options.join("\n- ");
+    }
+    return unk;
 }
 
 /**
